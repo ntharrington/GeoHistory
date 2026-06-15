@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#1a1a1a" />
+  <title>GeoHistory — Daily History Trivia</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app">
+    <!-- Landing screen -->
+    <section id="screen-landing" class="screen active">
+      <div class="landing-inner">
+        <h1 class="title">GeoHistory</h1>
+        <p class="subtitle">Pin the place. Make history.</p>
+        <div class="daily-card">
+          <div class="daily-label">Today's puzzle</div>
+          <div id="daily-date" class="daily-date">—</div>
+          <div class="daily-meta">5 rounds &middot; 3 US &middot; 2 International</div>
+        </div>
+        <div id="played-state" class="played-state" style="display:none;">
+          <div class="played-label">You played today's puzzle</div>
+          <div id="played-score" class="played-score">0</div>
+          <div id="played-summary" class="played-summary"></div>
+          <div class="final-buttons">
+            <button id="btn-played-share" class="btn-primary">Share result</button>
+            <button id="btn-played-review" class="btn-secondary">Review answers</button>
+          </div>
+        </div>
+        <button id="btn-play" class="btn-primary">Play</button>
+        <p class="rules">
+          Each round describes a historical event. Click the map where it happened.
+          The closer your guess, the more points you earn.
+        </p>
+      </div>
+    </section>
+
+    <!-- Game screen -->
+    <section id="screen-game" class="screen">
+      <header class="game-header">
+        <div class="round-info">
+          <span id="round-label">Round 1 / 5</span>
+          <span id="round-scope" class="scope-pill">US</span>
+        </div>
+        <div class="score-info">
+          <span class="score-label">Score</span>
+          <span id="total-score">0</span>
+        </div>
+      </header>
+
+      <div class="question-card">
+        <p id="question-text">Loading…</p>
+      </div>
+
+      <div id="map"></div>
+
+      <footer class="game-footer">
+        <div id="guess-hint" class="guess-hint">Click the map to place your guess</div>
+        <button id="btn-guess" class="btn-primary" disabled>Submit guess</button>
+      </footer>
+    </section>
+
+    <!-- Round result screen -->
+    <section id="screen-round-result" class="screen">
+      <div class="result-card">
+        <div class="result-points" id="result-points">+0</div>
+        <div class="result-distance" id="result-distance">— km away</div>
+        <div class="result-event" id="result-event">—</div>
+        <div class="result-detail" id="result-detail">—</div>
+        <button id="btn-next" class="btn-primary">Next round</button>
+      </div>
+    </section>
+
+    <!-- Final screen -->
+    <section id="screen-final" class="screen">
+      <div class="final-inner">
+        <h2>Final score</h2>
+        <div class="final-score" id="final-score">0</div>
+        <div class="final-max">out of 25,000</div>
+        <div class="final-summary" id="final-summary"></div>
+        <div class="final-buttons">
+          <button id="btn-share" class="btn-primary">Share result</button>
+          <button id="btn-review" class="btn-secondary">Review answers</button>
+        </div>
+        <p class="final-note">Come back tomorrow for a new daily puzzle.</p>
+      </div>
+    </section>
+
+    <!-- Review screen -->
+    <section id="screen-review" class="screen">
+      <header class="review-header">
+        <h2>Review</h2>
+        <button id="btn-review-back" class="btn-secondary">Back</button>
+      </header>
+      <div id="review-list" class="review-list"></div>
+    </section>
+  </div>
+
+  <div id="toast" class="toast"></div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="questions.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
