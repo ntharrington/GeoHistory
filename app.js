@@ -97,19 +97,24 @@ function pickDailyRounds() {
   const seed = hashStr("geohistory:" + todayKey());
   const rand = mulberry32(seed);
 
-  function pickN(pool, n) {
-    const idx = [...pool.keys()];
-    // Fisher–Yates with seeded PRNG
-    for (let i = idx.length - 1; i > 0; i--) {
+  // Seeded Fisher–Yates shuffle of array `arr` (in place).
+  function shuffle(arr) {
+    for (let i = arr.length - 1; i > 0; i--) {
       const j = Math.floor(rand() * (i + 1));
-      [idx[i], idx[j]] = [idx[j], idx[i]];
+      [arr[i], arr[j]] = [arr[j], arr[i]];
     }
-    return idx.slice(0, n).map(i => pool[i]);
+    return arr;
+  }
+
+  function pickN(pool, n) {
+    return shuffle([...pool.keys()]).slice(0, n).map(i => pool[i]);
   }
 
   const us = pickN(US_QUESTIONS, 3).map(q => ({ ...q, scope: "us" }));
   const intl = pickN(INTL_QUESTIONS, 2).map(q => ({ ...q, scope: "intl" }));
-  return [...us, ...intl];
+  // Mix US and international rounds into a random order so the map never
+  // reveals which scope the upcoming round belongs to.
+  return shuffle([...us, ...intl]);
 }
 
 // ---------- Geo math ----------
@@ -143,18 +148,25 @@ function showScreen(id) {
 }
 
 // ---------- Map ----------
-function initMapForRound(round) {
+// The map is created once at the start of the game and persists across all
+// rounds. Between rounds we only clear the previous guess marker; the view
+// stays where the player left it, so the map never hints at the next round's
+// region (US vs international).
+function prepareMap() {
   if (state.map) {
-    state.map.remove();
-    state.map = null;
+    if (state.guessMarker) {
+      state.map.removeLayer(state.guessMarker);
+      state.guessMarker = null;
+    }
+    state.guessLatLng = null;
+    // Container may have been hidden during the result screen — re-measure.
+    state.map.invalidateSize();
+    return;
   }
 
-  // US rounds: center on continental US, lower zoom. International: world view.
-  const center = round.scope === "us" ? [39.5, -98.35] : [25, 10];
-  const zoom = round.scope === "us" ? 4 : 2;
-
   state.map = L.map("map", {
-    center, zoom,
+    center: [20, 0],
+    zoom: 2,
     minZoom: 2,
     maxZoom: 12,
     worldCopyJump: true,
@@ -166,11 +178,6 @@ function initMapForRound(round) {
     subdomains: "abcd",
     maxZoom: 19,
   }).addTo(state.map);
-
-  state.guessMarker = null;
-  state.answerMarker = null;
-  state.answerLine = null;
-  state.guessLatLng = null;
 
   state.map.on("click", onMapClick);
 }
@@ -200,6 +207,14 @@ function startGame() {
   state.currentRound = 0;
   state.totalScore = 0;
   state.results = [];
+  // Discard any leftover map from a previous session so this game starts
+  // at the neutral world view.
+  if (state.map) {
+    state.map.remove();
+    state.map = null;
+    state.guessMarker = null;
+    state.guessLatLng = null;
+  }
   loadRound(0);
 }
 
@@ -207,18 +222,14 @@ function loadRound(idx) {
   const round = state.rounds[idx];
 
   document.getElementById("round-label").textContent = `Round ${idx + 1} / ${TOTAL_ROUNDS}`;
-  const scopePill = document.getElementById("round-scope");
-  scopePill.textContent = round.scope === "us" ? "US" : "International";
-  scopePill.className = "scope-pill " + (round.scope === "us" ? "us" : "intl");
-
   document.getElementById("question-text").textContent = round.question;
   document.getElementById("total-score").textContent = state.totalScore.toLocaleString();
   document.getElementById("btn-guess").disabled = true;
   document.getElementById("guess-hint").textContent = "Click the map to place your guess";
 
   showScreen("screen-game");
-  // Leaflet needs the container to be visible before init for sizing.
-  setTimeout(() => initMapForRound(round), 0);
+  // Leaflet needs the container to be visible before init/resize for sizing.
+  setTimeout(prepareMap, 0);
 }
 
 function submitGuess() {
