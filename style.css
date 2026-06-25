@@ -289,49 +289,72 @@ body {
   padding: 12px 28px;
 }
 
-/* ---------- Round Result ---------- */
-#screen-round-result {
-  align-items: center;
-  justify-content: center;
-  padding: 24px;
+/* ---------- Round Result Overlay ---------- */
+.round-result-overlay {
+  background: var(--bg-elev);
+  border-top: 1px solid var(--border);
+  padding: 16px;
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.35);
+  flex-shrink: 0;
+  animation: slideUp 0.22s ease-out;
 }
 
-.result-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 20px;
-  padding: 32px 28px;
-  max-width: 420px;
-  width: 100%;
-  text-align: center;
-  box-shadow: var(--shadow);
+.round-result-overlay.show {
+  display: flex;
 }
 
-.result-points {
-  font-size: 56px;
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to   { transform: translateY(0); opacity: 1; }
+}
+
+.overlay-stats {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.overlay-points {
+  font-size: 34px;
   font-weight: 800;
   color: var(--accent);
-  margin-bottom: 8px;
-  letter-spacing: -2px;
+  line-height: 1;
+  letter-spacing: -1px;
 }
 
-.result-distance {
-  font-size: 18px;
-  color: var(--text-dim);
-  margin-bottom: 24px;
-}
-
-.result-event {
-  font-size: 20px;
-  font-weight: 700;
-  margin-bottom: 8px;
-}
-
-.result-detail {
+.overlay-distance {
   font-size: 14px;
   color: var(--text-dim);
-  line-height: 1.5;
-  margin-bottom: 28px;
+  text-align: right;
+}
+
+.overlay-event {
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.overlay-detail {
+  font-size: 13px;
+  color: var(--text-dim);
+  line-height: 1.45;
+}
+
+.round-result-overlay .btn-primary {
+  margin-top: 4px;
+  width: 100%;
+  max-width: none;
+}
+
+/* Line connecting guess to correct answer */
+.leaflet-overlay-pane path.answer-line {
+  stroke: #ffffff;
+  stroke-width: 3;
+  stroke-dasharray: 6, 8;
+  opacity: 0.85;
 }
 
 /* ---------- Final ---------- */

@@ -152,12 +152,24 @@ function showScreen(id) {
 // rounds. Between rounds we only clear the previous guess marker; the view
 // stays where the player left it, so the map never hints at the next round's
 // region (US vs international).
+function clearMapAnswerLayers() {
+  if (state.answerMarker) {
+    state.map.removeLayer(state.answerMarker);
+    state.answerMarker = null;
+  }
+  if (state.answerLine) {
+    state.map.removeLayer(state.answerLine);
+    state.answerLine = null;
+  }
+}
+
 function prepareMap() {
   if (state.map) {
     if (state.guessMarker) {
       state.map.removeLayer(state.guessMarker);
       state.guessMarker = null;
     }
+    clearMapAnswerLayers();
     state.guessLatLng = null;
     // Container may have been hidden during the result screen — re-measure.
     state.map.invalidateSize();
@@ -227,6 +239,10 @@ function loadRound(idx) {
   document.getElementById("btn-guess").disabled = true;
   document.getElementById("guess-hint").textContent = "Click the map to place your guess";
 
+  // Reset the round UI: hide the result overlay, restore the guess footer.
+  document.getElementById("round-result-overlay").classList.remove("show");
+  document.getElementById("game-footer").style.display = "";
+
   showScreen("screen-game");
   // Leaflet needs the container to be visible before init/resize for sizing.
   setTimeout(prepareMap, 0);
@@ -252,7 +268,31 @@ function submitGuess() {
     answerLatLng: answer,
   });
 
+  drawAnswerOnMap(answer);
   showRoundResult(points, distanceKm, round);
+}
+
+// Drop a green marker at the correct location, draw a dashed line from
+// the player's guess to it, and reframe the map to fit both points.
+function drawAnswerOnMap(answer) {
+  const answerIcon = L.divIcon({
+    className: "",
+    html: '<div class="answer-marker"></div>',
+    iconSize: [18, 18],
+    iconAnchor: [9, 9],
+  });
+  state.answerMarker = L.marker([answer.lat, answer.lng], { icon: answerIcon }).addTo(state.map);
+
+  state.answerLine = L.polyline(
+    [[state.guessLatLng.lat, state.guessLatLng.lng], [answer.lat, answer.lng]],
+    { className: "answer-line" }
+  ).addTo(state.map);
+
+  const bounds = L.latLngBounds([
+    [state.guessLatLng.lat, state.guessLatLng.lng],
+    [answer.lat, answer.lng],
+  ]);
+  state.map.fitBounds(bounds, { padding: [60, 60], maxZoom: 6, animate: true });
 }
 
 function showRoundResult(points, distanceKm, round) {
@@ -260,11 +300,14 @@ function showRoundResult(points, distanceKm, round) {
   document.getElementById("result-distance").textContent = formatDistance(distanceKm);
   document.getElementById("result-event").textContent = round.answer;
   document.getElementById("result-detail").textContent = round.detail;
+  document.getElementById("total-score").textContent = state.totalScore.toLocaleString();
 
   const btnNext = document.getElementById("btn-next");
   btnNext.textContent = state.currentRound + 1 < TOTAL_ROUNDS ? "Next round" : "See final score";
 
-  showScreen("screen-round-result");
+  // Swap the guess footer for the result overlay; map stays visible behind.
+  document.getElementById("game-footer").style.display = "none";
+  document.getElementById("round-result-overlay").classList.add("show");
 }
 
 function nextRound() {
