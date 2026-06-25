@@ -56,19 +56,19 @@
 
       <div id="map"></div>
 
-      <footer class="game-footer">
+      <footer id="game-footer" class="game-footer">
         <div id="guess-hint" class="guess-hint">Click the map to place your guess</div>
         <button id="btn-guess" class="btn-primary" disabled>Submit guess</button>
       </footer>
-    </section>
 
-    <!-- Round result screen -->
-    <section id="screen-round-result" class="screen">
-      <div class="result-card">
-        <div class="result-points" id="result-points">+0</div>
-        <div class="result-distance" id="result-distance">— km away</div>
-        <div class="result-event" id="result-event">—</div>
-        <div class="result-detail" id="result-detail">—</div>
+      <!-- Slides up over the bottom of the map after a guess is submitted -->
+      <div id="round-result-overlay" class="round-result-overlay">
+        <div class="overlay-stats">
+          <div class="overlay-points" id="result-points">+0</div>
+          <div class="overlay-distance" id="result-distance">— km away</div>
+        </div>
+        <div class="overlay-event" id="result-event">—</div>
+        <div class="overlay-detail" id="result-detail">—</div>
         <button id="btn-next" class="btn-primary">Next round</button>
       </div>
     </section>
