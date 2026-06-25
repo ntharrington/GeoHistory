@@ -1,6 +1,6 @@
 {
-  "name": "GeoHistory",
-  "short_name": "GeoHistory",
+  "name": "Pin the Past",
+  "short_name": "Pin the Past",
   "description": "Daily history trivia — pin the place, make history.",
   "start_url": ".",
   "display": "standalone",

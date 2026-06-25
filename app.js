@@ -1,5 +1,5 @@
 // ============================================================
-// GeoHistory — daily history-trivia map game
+// Pin the Past — daily history-trivia map game
 // ============================================================
 
 const MAX_SCORE_PER_ROUND = 5000;
@@ -377,7 +377,7 @@ function showFinal() {
 
 function buildShareText() {
   const summary = state.results.map(r => emojiForPoints(r.points)).join("");
-  return `GeoHistory ${todayKey()}\n${state.totalScore.toLocaleString()} / ${(MAX_SCORE_PER_ROUND * TOTAL_ROUNDS).toLocaleString()}\n${summary}`;
+  return `Pin the Past ${todayKey()}\n${state.totalScore.toLocaleString()} / ${(MAX_SCORE_PER_ROUND * TOTAL_ROUNDS).toLocaleString()}\n${summary}\nhttps://pinthepast.app`;
 }
 
 async function shareResult() {
