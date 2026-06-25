@@ -93,28 +93,67 @@ function mulberry32(seed) {
   };
 }
 
+// Daily question selection guarantees:
+//   1. Everyone on the same local date gets the same 5 questions in the
+//      same order (deterministic from the date).
+//   2. No question can appear twice within any 20-day window. Each pool is
+//      shuffled once with a fixed seed into a stable rotation; each day
+//      takes the next 3 US and next 2 international questions from that
+//      rotation. With 60 US / 40 intl and 3+2 picked per day, both pools
+//      cycle every 20 days.
+//
+// Bump SCHEDULE_VERSION to reshuffle the rotation (e.g. after adding new
+// questions, or to refresh players who have completed a full cycle).
+const SCHEDULE_EPOCH = "2026-06-15";
+const SCHEDULE_VERSION = "v1";
+
+function mod(n, m) {
+  return ((n % m) + m) % m;
+}
+
+function shuffleArray(arr, rand) {
+  const out = [...arr];
+  for (let i = out.length - 1; i > 0; i--) {
+    const j = Math.floor(rand() * (i + 1));
+    [out[i], out[j]] = [out[j], out[i]];
+  }
+  return out;
+}
+
+function daysSinceEpoch() {
+  const utcMidnight = s => {
+    const [y, m, d] = s.split("-").map(Number);
+    return Date.UTC(y, m - 1, d);
+  };
+  return Math.round((utcMidnight(todayKey()) - utcMidnight(SCHEDULE_EPOCH)) / 86400000);
+}
+
 function pickDailyRounds() {
-  const seed = hashStr("geohistory:" + todayKey());
-  const rand = mulberry32(seed);
+  const day = daysSinceEpoch();
 
-  // Seeded Fisher–Yates shuffle of array `arr` (in place).
-  function shuffle(arr) {
-    for (let i = arr.length - 1; i > 0; i--) {
-      const j = Math.floor(rand() * (i + 1));
-      [arr[i], arr[j]] = [arr[j], arr[i]];
-    }
-    return arr;
-  }
+  // Fixed rotation order, same for every player on every day.
+  const usOrder = shuffleArray(
+    [...US_QUESTIONS.keys()],
+    mulberry32(hashStr("geohistory:us-schedule:" + SCHEDULE_VERSION))
+  );
+  const intlOrder = shuffleArray(
+    [...INTL_QUESTIONS.keys()],
+    mulberry32(hashStr("geohistory:intl-schedule:" + SCHEDULE_VERSION))
+  );
 
-  function pickN(pool, n) {
-    return shuffle([...pool.keys()]).slice(0, n).map(i => pool[i]);
-  }
+  const us = [0, 1, 2].map(i => {
+    const poolIdx = usOrder[mod(day * 3 + i, usOrder.length)];
+    return { ...US_QUESTIONS[poolIdx], scope: "us" };
+  });
+  const intl = [0, 1].map(i => {
+    const poolIdx = intlOrder[mod(day * 2 + i, intlOrder.length)];
+    return { ...INTL_QUESTIONS[poolIdx], scope: "intl" };
+  });
 
-  const us = pickN(US_QUESTIONS, 3).map(q => ({ ...q, scope: "us" }));
-  const intl = pickN(INTL_QUESTIONS, 2).map(q => ({ ...q, scope: "intl" }));
-  // Mix US and international rounds into a random order so the map never
-  // reveals which scope the upcoming round belongs to.
-  return shuffle([...us, ...intl]);
+  // Per-day reshuffle of the US/intl mix order — keeps the scope hidden,
+  // but doesn't change WHICH questions appear that day.
+  const mixRand = mulberry32(hashStr("geohistory:mix:" + todayKey()));
+  return shuffleArray([...us, ...intl], mixRand);
 }
 
 // ---------- Geo math ----------
