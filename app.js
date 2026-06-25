@@ -96,16 +96,16 @@ function mulberry32(seed) {
 // Daily question selection guarantees:
 //   1. Everyone on the same local date gets the same 5 questions in the
 //      same order (deterministic from the date).
-//   2. No question can appear twice within any 20-day window. Each pool is
+//   2. No question can appear twice within any 30-day window. Each pool is
 //      shuffled once with a fixed seed into a stable rotation; each day
 //      takes the next 3 US and next 2 international questions from that
-//      rotation. With 60 US / 40 intl and 3+2 picked per day, both pools
-//      cycle every 20 days.
+//      rotation. With 90 US / 60 intl and 3+2 picked per day, both pools
+//      cycle every 30 days.
 //
 // Bump SCHEDULE_VERSION to reshuffle the rotation (e.g. after adding new
 // questions, or to refresh players who have completed a full cycle).
 const SCHEDULE_EPOCH = "2026-06-15";
-const SCHEDULE_VERSION = "v1";
+const SCHEDULE_VERSION = "v2";
 
 function mod(n, m) {
   return ((n % m) + m) % m;

@@ -423,6 +423,216 @@ const US_QUESTIONS = [
     lat: 39.9484, lng: -75.1494,
     detail: "Carpenters' Hall in Philadelphia, Pennsylvania. The Congress met from September 5 to October 26, 1774.",
     zoom: 4
+  },
+  {
+    question: "Where did colonial militia inflict heavy British casualties in June 1775, despite ultimately losing the hill?",
+    answer: "Battle of Bunker Hill",
+    lat: 42.3763, lng: -71.0610,
+    detail: "Fought June 17, 1775 on Breed's Hill in Charlestown, Massachusetts (across the harbor from Boston). 'Don't fire until you see the whites of their eyes.'",
+    zoom: 4
+  },
+  {
+    question: "Where did Washington lead a surprise Christmas-night crossing in 1776, en route to a daring attack on Hessian troops?",
+    answer: "Washington Crosses the Delaware",
+    lat: 40.2206, lng: -74.7597,
+    detail: "Across the icy Delaware River from Pennsylvania to New Jersey, December 25–26, 1776. The crossing led to the Battle of Trenton the next morning.",
+    zoom: 4
+  },
+  {
+    question: "Where did Washington's Continental Army endure a brutal winter encampment in 1777–78?",
+    answer: "Valley Forge Encampment",
+    lat: 40.0996, lng: -75.4376,
+    detail: "Valley Forge, Pennsylvania, about 20 miles northwest of Philadelphia. About 2,000 of the 12,000 soldiers died of disease and exposure.",
+    zoom: 4
+  },
+  {
+    question: "Where did British troops burn the President's House and the Capitol in August 1814?",
+    answer: "Burning of Washington",
+    lat: 38.8977, lng: -77.0365,
+    detail: "Washington, D.C. — the only time a foreign power has captured the American capital. August 24, 1814, during the War of 1812.",
+    zoom: 4
+  },
+  {
+    question: "Where did Francis Scott Key watch a 25-hour bombardment that inspired the future US national anthem in 1814?",
+    answer: "Defense of Fort McHenry",
+    lat: 39.2638, lng: -76.5800,
+    detail: "Fort McHenry in Baltimore Harbor, Maryland, September 13–14, 1814. The flag still flying at dawn inspired 'The Star-Spangled Banner'.",
+    zoom: 4
+  },
+  {
+    question: "Where did Lewis and Clark set out on their westward expedition in May 1804?",
+    answer: "Lewis and Clark Expedition Begins",
+    lat: 38.6247, lng: -90.1848,
+    detail: "From Camp Dubois at the mouth of the Missouri River, opposite present-day St. Louis, Missouri. They departed May 14, 1804 and reached the Pacific in November 1805.",
+    zoom: 4
+  },
+  {
+    question: "Where did farmers stage a tax revolt in the 1790s that Washington personally led troops to put down?",
+    answer: "Whiskey Rebellion",
+    lat: 40.3501, lng: -79.9114,
+    detail: "Western Pennsylvania, especially around the area now part of Pittsburgh. Federal forces under Washington marched west in 1794; the rebellion collapsed without major fighting.",
+    zoom: 4
+  },
+  {
+    question: "Where did Wampanoag leader Metacomet wage a devastating war against New England colonists in 1675–76?",
+    answer: "King Philip's War",
+    lat: 41.6792, lng: -71.2603,
+    detail: "Centered on the Pokanoket homeland at Mount Hope (Bristol, Rhode Island), where Metacomet ('King Philip') was killed in August 1676. Per capita, the deadliest war in American history.",
+    zoom: 4
+  },
+  {
+    question: "Where did English settlers vanish without a trace in the 1580s, leaving only the word 'CROATOAN' carved on a post?",
+    answer: "Lost Colony of Roanoke",
+    lat: 35.9343, lng: -75.7099,
+    detail: "Roanoke Island, off the coast of present-day North Carolina. The fate of the 1587 colony remains one of America's enduring mysteries.",
+    zoom: 4
+  },
+  {
+    question: "Where did the first major land battle of the Civil War shatter expectations of a quick war in July 1861?",
+    answer: "First Battle of Bull Run",
+    lat: 38.8131, lng: -77.5224,
+    detail: "Near Manassas, Virginia, July 21, 1861. The Confederate victory routed Union troops and sent Washington civilian spectators fleeing back to the capital.",
+    zoom: 4
+  },
+  {
+    question: "Where did a bloody April 1862 Civil War battle produce more casualties than all prior American wars combined?",
+    answer: "Battle of Shiloh",
+    lat: 35.1455, lng: -88.3413,
+    detail: "Along the Tennessee River near Pittsburg Landing, in southwest Tennessee. Grant held the field after near-disaster on the first day, April 6, 1862.",
+    zoom: 4
+  },
+  {
+    question: "Where did 13,000 Union prisoners die of starvation and disease in a Confederate prison camp?",
+    answer: "Andersonville Prison",
+    lat: 32.1958, lng: -84.1303,
+    detail: "Camp Sumter, near Andersonville, Georgia. Of 45,000 prisoners held in 14 months, nearly a third died. The commandant was executed for war crimes after the war.",
+    zoom: 4
+  },
+  {
+    question: "Where was the world's first national park established by an act of Congress in 1872?",
+    answer: "Yellowstone National Park",
+    lat: 44.4280, lng: -110.5885,
+    detail: "In the northwest corner of Wyoming, spilling into Montana and Idaho. President Grant signed the establishing act on March 1, 1872.",
+    zoom: 4
+  },
+  {
+    question: "Where did a labor rally end in a bomb blast and police gunfire in May 1886, hardening anti-labor sentiment for decades?",
+    answer: "Haymarket Affair",
+    lat: 41.8859, lng: -87.6447,
+    detail: "Haymarket Square on the West Side of Chicago, May 4, 1886, during a rally for the eight-hour workday. The bombing remains officially unsolved.",
+    zoom: 4
+  },
+  {
+    question: "Where did Elizabeth Cady Stanton and Lucretia Mott convene the first women's rights convention in the US?",
+    answer: "Seneca Falls Convention",
+    lat: 42.9106, lng: -76.7959,
+    detail: "Seneca Falls, in the Finger Lakes region of New York, July 19–20, 1848. The Declaration of Sentiments demanded women's right to vote — 72 years before the 19th Amendment.",
+    zoom: 4
+  },
+  {
+    question: "Where was a high school teacher prosecuted in 1925 for teaching evolution, in a trial that drew national attention?",
+    answer: "Scopes 'Monkey' Trial",
+    lat: 35.4936, lng: -85.0103,
+    detail: "Dayton, Tennessee, July 1925. John T. Scopes was convicted and fined $100; the trial pitted William Jennings Bryan against Clarence Darrow.",
+    zoom: 4
+  },
+  {
+    question: "Where did US naval aviators destroy four Japanese fleet carriers in June 1942, turning the tide of the Pacific War?",
+    answer: "Battle of Midway",
+    lat: 28.2070, lng: -177.3729,
+    detail: "Near Midway Atoll, in the central Pacific Ocean. Fought June 4–7, 1942 — widely considered the most decisive naval battle of WWII.",
+    zoom: 4
+  },
+  {
+    question: "Where was a famous February 1945 photograph taken of US Marines raising the flag atop a Pacific volcano?",
+    answer: "Iwo Jima Flag Raising",
+    lat: 24.7800, lng: 141.3219,
+    detail: "Mount Suribachi, on the Japanese island of Iwo Jima, February 23, 1945. Joe Rosenthal's photograph became one of the most reproduced images of the war.",
+    zoom: 4
+  },
+  {
+    question: "Where did a 1951 lawsuit lead to the Supreme Court's 1954 ruling against 'separate but equal' public schools?",
+    answer: "Brown v. Board of Education",
+    lat: 39.0473, lng: -95.6752,
+    detail: "Topeka, Kansas — where Oliver Brown sued the school board on behalf of his daughter Linda. The unanimous SCOTUS decision came down May 17, 1954.",
+    zoom: 4
+  },
+  {
+    question: "Where did President Eisenhower send the 101st Airborne in 1957 to enforce school integration?",
+    answer: "Integration of Central High",
+    lat: 34.7388, lng: -92.2945,
+    detail: "Central High School in Little Rock, Arkansas. The 'Little Rock Nine' entered under federal escort beginning September 25, 1957.",
+    zoom: 4
+  },
+  {
+    question: "Where did four Black college students refuse to leave a segregated lunch counter in February 1960?",
+    answer: "Greensboro Sit-In",
+    lat: 36.0712, lng: -79.7906,
+    detail: "The F.W. Woolworth on South Elm Street in Greensboro, North Carolina, February 1, 1960. Within weeks the protest spread to dozens of cities.",
+    zoom: 4
+  },
+  {
+    question: "Where did a Klan bomb kill four Black girls at Sunday school in September 1963?",
+    answer: "16th Street Baptist Church Bombing",
+    lat: 33.5184, lng: -86.8048,
+    detail: "16th Street Baptist Church in Birmingham, Alabama, September 15, 1963. The bombing helped galvanize support for the Civil Rights Act of 1964.",
+    zoom: 4
+  },
+  {
+    question: "Where was Martin Luther King Jr. shot dead on a motel balcony in April 1968?",
+    answer: "Assassination of Martin Luther King Jr.",
+    lat: 35.1349, lng: -90.0577,
+    detail: "The Lorraine Motel in Memphis, Tennessee, April 4, 1968. King was there to support striking sanitation workers; the site is now the National Civil Rights Museum.",
+    zoom: 4
+  },
+  {
+    question: "Where did Confederates win a major September 1863 victory along a creek in northwest Georgia?",
+    answer: "Battle of Chickamauga",
+    lat: 34.9362, lng: -85.2638,
+    detail: "Along Chickamauga Creek, just south of Chattanooga. Second only to Gettysburg in Civil War casualties.",
+    zoom: 4
+  },
+  {
+    question: "Where did Sherman's army burn the central business district of a major Confederate rail hub in November 1864?",
+    answer: "Burning of Atlanta",
+    lat: 33.7490, lng: -84.3880,
+    detail: "Atlanta, Georgia. Sherman ordered the city's military and industrial assets destroyed beginning November 15, 1864, before setting out on his March to the Sea.",
+    zoom: 4
+  },
+  {
+    question: "Where did the Space Shuttle Challenger break apart 73 seconds after launch in January 1986?",
+    answer: "Challenger Disaster",
+    lat: 28.6406, lng: -80.6097,
+    detail: "Launch Complex 39B at Cape Canaveral, Florida; the shuttle disintegrated above the Atlantic just off the coast. All seven crew members died, including teacher Christa McAuliffe.",
+    zoom: 4
+  },
+  {
+    question: "Where did six days of riots erupt in 1992 after the acquittal of police officers in the Rodney King beating case?",
+    answer: "1992 Los Angeles Riots",
+    lat: 34.0522, lng: -118.2437,
+    detail: "Los Angeles, California, beginning April 29, 1992. The unrest killed 63 people and caused $1 billion in damage.",
+    zoom: 4
+  },
+  {
+    question: "Where did a 51-day federal siege of a religious compound end in a deadly fire in April 1993?",
+    answer: "Waco Siege",
+    lat: 31.5993, lng: -97.0683,
+    detail: "The Branch Davidian compound at Mount Carmel Center, near Waco, Texas. The fire on April 19, 1993 killed 76, including David Koresh and 25 children.",
+    zoom: 4
+  },
+  {
+    question: "Where did 27 million visitors marvel at the 'White City' during a six-month world's fair in 1893?",
+    answer: "World's Columbian Exposition",
+    lat: 41.7901, lng: -87.5775,
+    detail: "Jackson Park, on the South Side of Chicago. The fair celebrated 400 years since Columbus's voyage and introduced the world to the Ferris wheel.",
+    zoom: 4
+  },
+  {
+    question: "Where did a railroad workers' strike escalate into a national rail shutdown that President Cleveland broke with federal troops in 1894?",
+    answer: "Pullman Strike",
+    lat: 41.7011, lng: -87.6062,
+    detail: "The company town of Pullman, on the South Side of Chicago, Illinois. The strike began May 11, 1894 and crippled rail traffic across the western US.",
+    zoom: 4
   }
 ];
 
@@ -705,6 +915,146 @@ const INTL_QUESTIONS = [
     answer: "Battle of the Plains of Abraham",
     lat: 46.8016, lng: -71.2150,
     detail: "On a plateau outside the walls of Quebec City, September 13, 1759. Both commanders — Wolfe and Montcalm — died of wounds within a day.",
+    zoom: 2
+  },
+  {
+    question: "Where did Hannibal famously lead his army (and war elephants) across mountains in 218 BC to invade Italy?",
+    answer: "Hannibal Crosses the Alps",
+    lat: 45.1503, lng: 6.6814,
+    detail: "The exact route is debated, but the crossing was through the western Alps between Gaul and Cisalpine Gaul — roughly the modern French–Italian border. Around half his army died on the trek.",
+    zoom: 2
+  },
+  {
+    question: "Where did Julius Caesar cross a small river in northern Italy in 49 BC, defying the Senate and starting a civil war?",
+    answer: "Caesar Crosses the Rubicon",
+    lat: 44.0833, lng: 12.4000,
+    detail: "The Rubicon, a small stream in northeastern Italy near present-day Rimini. 'Alea iacta est' — 'the die is cast'.",
+    zoom: 2
+  },
+  {
+    question: "Where did Siddhartha Gautama achieve enlightenment under a bodhi tree around 528 BC, becoming the Buddha?",
+    answer: "Buddha's Enlightenment",
+    lat: 24.6961, lng: 84.9908,
+    detail: "Bodh Gaya, in the state of Bihar in present-day India. The Mahabodhi Temple complex now marks the site.",
+    zoom: 2
+  },
+  {
+    question: "Where was Charlemagne crowned Emperor of the Romans by Pope Leo III on Christmas Day, 800?",
+    answer: "Coronation of Charlemagne",
+    lat: 41.9022, lng: 12.4533,
+    detail: "Old St. Peter's Basilica in Rome. The coronation founded what would become the Holy Roman Empire.",
+    zoom: 2
+  },
+  {
+    question: "Where did Norse explorers establish a settlement in North America around 1000 AD, five centuries before Columbus?",
+    answer: "Norse Settlement in the Americas",
+    lat: 51.5961, lng: -55.5311,
+    detail: "L'Anse aux Meadows, on the northern tip of Newfoundland, Canada. The site, discovered in 1960, confirmed the sagas about Leif Erikson's voyages to 'Vinland'.",
+    zoom: 2
+  },
+  {
+    question: "Where was Joan of Arc burned at the stake at age 19 in 1431?",
+    answer: "Execution of Joan of Arc",
+    lat: 49.4432, lng: 1.0944,
+    detail: "Rouen, in Normandy, France — then under English control. She was canonized as a saint in 1920, nearly five centuries after her death.",
+    zoom: 2
+  },
+  {
+    question: "Where did English fireships scatter a massive Spanish invasion fleet in August 1588?",
+    answer: "Battle of Gravelines",
+    lat: 50.9847, lng: 2.1235,
+    detail: "Off Gravelines, on the coast of present-day France. The defeat broke Philip II's attempt to invade Elizabethan England.",
+    zoom: 2
+  },
+  {
+    question: "Where did Napoleon win a bloody one-day battle 75 miles west of his target city in September 1812, opening the road to Moscow?",
+    answer: "Battle of Borodino",
+    lat: 55.5167, lng: 35.8167,
+    detail: "Near the village of Borodino, west of Moscow. Roughly 70,000 casualties in a single day — one of the bloodiest of the Napoleonic Wars.",
+    zoom: 2
+  },
+  {
+    question: "Where did anti-foreign Chinese rebels besiege foreign legations for 55 days during the summer of 1900?",
+    answer: "Siege of the International Legations",
+    lat: 39.9163, lng: 116.4040,
+    detail: "The Legation Quarter in Beijing, China, during the Boxer Rebellion. An Eight-Nation Alliance relief force broke the siege in August 1900.",
+    zoom: 2
+  },
+  {
+    question: "Where did the Japanese navy annihilate a Russian fleet that had sailed halfway around the world, in May 1905?",
+    answer: "Battle of Tsushima",
+    lat: 34.3000, lng: 129.5000,
+    detail: "The Tsushima Strait between Japan and Korea. Japan's victory on May 27–28, 1905 stunned Europe and effectively ended the Russo-Japanese War.",
+    zoom: 2
+  },
+  {
+    question: "Where did Irish republicans proclaim a republic during Easter Week 1916, seizing key buildings in their capital?",
+    answer: "Easter Rising",
+    lat: 53.3490, lng: -6.2603,
+    detail: "Dublin, Ireland — the rebels' headquarters was the General Post Office on O'Connell Street. The rising was crushed within a week, but the execution of its leaders turned public opinion.",
+    zoom: 2
+  },
+  {
+    question: "Where were over 338,000 Allied troops evacuated by sea in late May and early June 1940, as German forces closed in?",
+    answer: "Dunkirk Evacuation",
+    lat: 51.0344, lng: 2.3768,
+    detail: "Dunkirk, on the northern coast of France. Operation Dynamo lasted from May 26 to June 4, 1940, conducted by a flotilla of military and civilian vessels.",
+    zoom: 2
+  },
+  {
+    question: "Where did Montgomery's Eighth Army defeat Rommel's Afrika Korps in late 1942, turning the North African campaign?",
+    answer: "Second Battle of El Alamein",
+    lat: 30.8333, lng: 28.9500,
+    detail: "Near the railway station of El Alamein, on the Egyptian coast about 65 miles west of Alexandria. Churchill: 'Before Alamein we never had a victory. After Alamein we never had a defeat.'",
+    zoom: 2
+  },
+  {
+    question: "Where did Roosevelt, Churchill, and Stalin meet in February 1945 to plan the postwar order?",
+    answer: "Yalta Conference",
+    lat: 44.4960, lng: 34.1438,
+    detail: "The Livadia Palace in Yalta, on the Black Sea coast of Crimea. The conference shaped the borders and political alignments of postwar Europe.",
+    zoom: 2
+  },
+  {
+    question: "Where did Western Allies fly in food and fuel for 11 months in 1948–49, breaking a Soviet blockade?",
+    answer: "Berlin Airlift",
+    lat: 52.4736, lng: 13.4031,
+    detail: "Tempelhof Airport in West Berlin. From June 1948 to May 1949, Allied aircraft delivered over 2.3 million tons of supplies.",
+    zoom: 2
+  },
+  {
+    question: "Where was the largest of three pyramids built as a tomb for the pharaoh Khufu around 2560 BC?",
+    answer: "Great Pyramid of Giza",
+    lat: 29.9792, lng: 31.1342,
+    detail: "On the Giza Plateau, just outside present-day Cairo, Egypt. The tallest human-made structure for nearly 4,000 years.",
+    zoom: 2
+  },
+  {
+    question: "Where did ethnic Hutu militias kill an estimated 800,000 people in 100 days during the spring of 1994?",
+    answer: "Rwandan Genocide",
+    lat: -1.9441, lng: 30.0619,
+    detail: "Throughout Rwanda, with the capital Kigali at the epicenter. The killing began on April 7, 1994, the day after President Habyarimana's plane was shot down.",
+    zoom: 2
+  },
+  {
+    question: "Where did Britain return a major Asian financial center to Chinese sovereignty at midnight on July 1, 1997?",
+    answer: "Handover of Hong Kong",
+    lat: 22.2796, lng: 114.1731,
+    detail: "Hong Kong. The handover ended 156 years of British colonial rule under the principle of 'one country, two systems'.",
+    zoom: 2
+  },
+  {
+    question: "Where was Nelson Mandela sworn in as South Africa's first Black president on May 10, 1994?",
+    answer: "Inauguration of Nelson Mandela",
+    lat: -25.7461, lng: 28.2293,
+    detail: "The Union Buildings in Pretoria, South Africa. Mandela's inauguration marked the formal end of apartheid.",
+    zoom: 2
+  },
+  {
+    question: "Where did the Royal Air Force defeat the Luftwaffe in an aerial campaign during the summer and autumn of 1940?",
+    answer: "Battle of Britain",
+    lat: 51.0954, lng: 1.1606,
+    detail: "Over southeast England and the English Channel. The Battle of Britain Memorial at Capel-le-Ferne, on the cliffs near Dover, commemorates the airmen.",
     zoom: 2
   }
 ];
